@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/insighthub
+    username: insighthub
+    password: secret
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cache:
+    type: redis
+
+redis:
+  host: localhost
+  port: 6379
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus
+
+jwt:
+  secret: your-256-bit-secret
+  expiration: 3600000
